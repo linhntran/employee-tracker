@@ -161,12 +161,9 @@ function addRole() {
                     message: "Enter the salary of the new role:",
                 },
                 {
-                    type: "list",
+                    type: "input",
                     name: "department",
-                    message: "Select the department for the new role:",
-                    choices: res.map(
-                        (department) => department.department_name
-                    ),
+                    message: "What is the new role's deptartment id?"
                 },
             ])
             .then((answers) => {
@@ -179,7 +176,7 @@ function addRole() {
                     {
                         title: answers.title,
                         salary: answers.salary,
-                        department_id: department,
+                        department_id: answers.department
                     },
                     (err, res) => {
                         if (err) throw err;
